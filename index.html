@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>A-Frame Demo</title>
+  <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
+
+  <script src="../assets/components/cursor-listener.js"></script>
+  <script src="../assets/components/raycaster-autorefresh.js"></script>
+  <script src="../assets/components/game-manager.js"></script>
+</head>
+<body>
+  <a-scene game-manager='numberOfAvocado: 10' raycaster-autorefresh >
+
+    <a-assets>
+     <!-- <img crossorigin="anonymous" id="city" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg"> -->
+
+     <a-asset-item id="avocado" src="../assets/models/Avocado/Avocado.gltf"></a-asset-item>
+    </a-assets>
+
+    <!-- 360-degree image -->
+    <!-- <a-sky src="#city"></a-sky> -->
+
+    <!-- <a-entity class="item" cursor-listener gltf-model="#avocado" position="0.05 1 -1" scale="2 2 2"></a-entity> -->
+    <!-- <a-entity class="item" cursor-listener gltf-model="#avocado" position="0.5 1.6 -1" scale="2 2 2"></a-entity> -->
+    <!-- <a-entity class="item" cursor-listener gltf-model="#avocado" position="0.25 2.1 -1.5" scale="2 2 2"></a-entity> -->
+
+    <a-sky color="#A6CFE2"></a-sky>
+
+    <a-camera
+      position="0 1 0.5"
+      cursor-visible="true"
+      cursor-scale="3"
+      cursor-color="#0095DD"
+      cursor-opacity="0.5">
+      <a-cursor></a-cursor>
+    </a-camera>
+
+  </a-scene>
+</body>
+</html>
+
