@@ -10,9 +10,9 @@ generateRandomNumber = (min, max) => {
 chooseRandomPosition = () => {
 
   console.log('random position')
-  let positionX = generateRandomNumber(-10, 10);
+  let positionX = generateRandomNumber(-1, 2);
   let positionY = 1.6
-  let positionZ = generateRandomNumber(-15, -30);
+  let positionZ = generateRandomNumber(-1, -3);
 
   return {'x': positionX, 'y': positionY, 'z': positionZ}
 }
@@ -23,20 +23,20 @@ createAvocado = () => {
 
   // const scene = document.querySelector('a-scene')
 
-  const newAvocado = document.createElement('a-entity')
-
-  // scene.appendChild(newAvocado)
+  const newAvocado = document.createElement('a-gltf-model')
 
   newAvocado.setAttribute("class", "item")
-  // newAvocado.setAttribute('cursor-listener', ' ')
-  newAvocado.setAttribute("gltf-model", "#apple")
+  newAvocado.setAttribute('cursor-listener', ' ')
+  newAvocado.setAttribute("src", "#avocado")
 
-  console.log(newAvocado)
+  // console.log(newAvocado)
 
   let position = chooseRandomPosition()
   console.log(position)
   let positionStr = position.x.toString() + ' ' + position.y.toString() + ' ' + position.z.toString()
-  newAvocado.setAttribute('position', position);
+  newAvocado.setAttribute("position", position);
+
+  console.log(newAvocado)
 
   return newAvocado
 }
