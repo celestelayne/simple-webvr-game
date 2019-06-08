@@ -21,11 +21,11 @@ chooseRandomPosition = () => {
 createAvocado = () => {
   console.log('create avocado')
 
-  const newAvocado = document.createElement('a-asset-item')
+  const newAvocado = document.createElement('a-entity')
 
   newAvocado.setAttribute('class', 'item')
   newAvocado.setAttribute('cursor-listener', ' ')
-  newAvocado.setAttribute('gltf-model', 'avocado')
+  newAvocado.setAttribute('gltf-model', '#avocado')
 
   console.log(newAvocado)
 
