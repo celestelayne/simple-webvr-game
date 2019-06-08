@@ -21,11 +21,15 @@ chooseRandomPosition = () => {
 createAvocado = () => {
   console.log('create avocado')
 
+  // const scene = document.querySelector('a-scene')
+
   const newAvocado = document.createElement('a-entity')
 
-  newAvocado.setAttribute('class', 'item')
-  newAvocado.setAttribute('cursor-listener', ' ')
-  newAvocado.setAttribute('gltf-model', '#avocado')
+  // scene.appendChild(newAvocado)
+
+  newAvocado.setAttribute("class", "item")
+  // newAvocado.setAttribute('cursor-listener', ' ')
+  newAvocado.setAttribute("gltf-model", "#apple")
 
   console.log(newAvocado)
 
@@ -44,6 +48,8 @@ AFRAME.registerComponent('game-manager', {
     numberOfAvocado: { type: 'int' }
   },
   init: function(){
+
+    console.log('Hello, World!');
 
     const numAvocado = this.data['numberOfAvocado']
     const sceneElement = document.querySelector('a-scene')

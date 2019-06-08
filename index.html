@@ -10,20 +10,20 @@
   <script src="../assets/components/game-manager.js"></script>
 </head>
 <body>
-  <a-scene game-manager='numberOfAvocado: 10' raycaster-autorefresh >
+  <a-scene raycaster-autorefresh >
 
     <a-assets>
      <!-- <img crossorigin="anonymous" id="city" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg"> -->
 
-     <a-asset-item id="avocado" src="../assets/models/Avocado/Avocado.gltf"></a-asset-item>
+     <a-asset-item crossorigin="anonymous" id="avocado" src="../assets/models/Avocado/Avocado.gltf"></a-asset-item>
     </a-assets>
 
     <!-- 360-degree image -->
     <!-- <a-sky src="#city"></a-sky> -->
 
-    <!-- <a-entity class="item" cursor-listener gltf-model="#avocado" position="0.05 1 -1" scale="2 2 2"></a-entity> -->
-    <!-- <a-entity class="item" cursor-listener gltf-model="#avocado" position="0.5 1.6 -1" scale="2 2 2"></a-entity> -->
-    <!-- <a-entity class="item" cursor-listener gltf-model="#avocado" position="0.25 2.1 -1.5" scale="2 2 2"></a-entity> -->
+    <a-entity class="item" cursor-listener gltf-model="#avocado" position="0.05 1 -1" scale="2 2 2"></a-entity>
+    <a-entity class="item" cursor-listener gltf-model="#avocado" position="0.5 1.6 -1" scale="2 2 2"></a-entity>
+    <a-entity class="item" cursor-listener gltf-model="#avocado" position="0.25 2.1 -1.5" scale="2 2 2"></a-entity>
 
     <a-sky color="#A6CFE2"></a-sky>
 
