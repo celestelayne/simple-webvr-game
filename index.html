@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>A-Frame Demo</title>
-  <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
-  <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
+  <script defer src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
+  <script defer src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
 
-  <script src="../assets/components/cursor-listener.js"></script>
-  <script src="../assets/components/raycaster-autorefresh.js"></script>
-  <script src="../assets/components/game-manager.js"></script>
+  <script defer src="../assets/components/cursor-listener.js"></script>
+  <script defer src="../assets/components/raycaster-autorefresh.js"></script>
+  <script defer src="../assets/components/game-manager.js"></script>
 </head>
 <body>
-  <a-scene raycaster-autorefresh >
+  <a-scene raycaster-autorefresh game-manager="numberOfAvocado: 10">
 
     <a-assets>
      <!-- <img crossorigin="anonymous" id="city" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg"> -->
 <!--       <audio src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay
             preload></audio> -->
-      <img id="ground" src="ground.jpg">
+      <!-- <img id="ground" src="ground.jpg"> -->
       <a-asset-item id="avocado" src="../assets/models/Avocado/Avocado.gltf"></a-asset-item>
     </a-assets>
 
@@ -32,13 +32,13 @@
       scale="0.5 0.5 0.5"
       value="Game Score:"></a-text>
 
-    <a-entity
-      class="item"
-      cursor-listener
-      gltf-model="#avocado"
-      position="0.05 1 -1"
-      scale="2 2 2">
-    </a-entity>
+<!--       <a-entity
+        class="item"
+        cursor-listener
+        gltf-model="#avocado"
+        position="0.05 1 -1"
+        scale="2 2 2">
+      </a-entity> -->
 
 <!--     <a-entity
       id='ball'
@@ -56,17 +56,11 @@
       height="20"
       width="100"></a-plane>
 
-<!--     <a-plane
-      color='red'
-      rotation="-90 0 0"
-      src="#ground"
-      width="100"
-      height="100">
-    </a-plane> -->
-
     <a-camera position="0 1.5 0">
       <a-cursor></a-cursor>
     </a-camera>
+
+    <!-- <a-entity game-manager="numberOfAvocado: 10"></a-entity> -->
 
   </a-scene>
 </body>

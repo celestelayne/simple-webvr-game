@@ -23,41 +23,44 @@ createAvocado = () => {
 
   // const scene = document.querySelector('a-scene')
 
-  const newAvocado = document.createElement('a-gltf-model')
+  const newAvocado = document.createElement('a-entity')
 
   newAvocado.setAttribute("class", "item")
   newAvocado.setAttribute('cursor-listener', ' ')
-  newAvocado.setAttribute("src", "#avocado")
+  newAvocado.setAttribute('src', "#avocado")
 
-  // console.log(newAvocado)
+  console.log(newAvocado)
 
   let position = chooseRandomPosition()
   console.log(position)
   let positionStr = position.x.toString() + ' ' + position.y.toString() + ' ' + position.z.toString()
-  newAvocado.setAttribute("position", position);
+  console.log(positionStr)
+  newAvocado.setAttribute('position', 'x', 'position.x');
+  newAvocado.setAttribute('scale', '2 2 2');
 
   console.log(newAvocado)
 
   return newAvocado
 }
 
-createAvocado()
+
 
 AFRAME.registerComponent('game-manager', {
   schema: {
     numberOfAvocado: { type: 'int' }
   },
-  init: function(){
-
+  init: function () {
     console.log('Hello, World!');
-
     const numAvocado = this.data['numberOfAvocado']
+    console.log(numAvocado)
     const sceneElement = document.querySelector('a-scene')
     const avocadoArray = []
 
-    for (let i = 0; i < avocadoArray; i++) {
+    for (let i = 0; i < numAvocado; i++) {
       avocadoArray.push(createAvocado());
     }
+
+    console.log(avocadoArray);
 
     sceneElement.addEventListener('loaded', function(){
       avocadoArray.forEach(function(avo){
@@ -71,6 +74,7 @@ AFRAME.registerComponent('game-manager', {
 const playGame = () => {
   generateRandomNumber()
   chooseRandomPosition()
+  // createAvocado()
 }
 
 playGame()
