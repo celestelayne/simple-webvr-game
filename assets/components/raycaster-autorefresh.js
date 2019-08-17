@@ -1,3 +1,5 @@
+console.log('this is the raycaster autorefresh');
+
 AFRAME.registerComponent('raycaster-autorefresh', {
     init: function () {
         const el = this.el;

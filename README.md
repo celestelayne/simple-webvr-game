@@ -12,16 +12,17 @@ A-Frame is a web framework for building virtual reality (VR) experiences for the
 
 #### Getting Started
 
-First, create a new directory called `aframe-tutorial`
+First, create a new directory called `aframe-webvr-game`.
 
 ```bash
-$ mkdir aframe-tutorial
+$ mkdir aframe-webvr-game
 ```
 
-Change into the directory and run git init and npm init, respectively.
+Change into the directory and  and create and `index.html` file. Then, run `git init` and `npm init` (optional).
 
 ```bash
-$ cd aframe-tutorial
+$ cd aframe-webvr-game
+$ touch index.html
 
 $ git init
 $ npm init --yes
@@ -36,7 +37,7 @@ $ npm init --yes
 <html>
 <head>
   <meta charset="utf-8">
-  <title>A-Frame Demo</title>
+  <title>A-Frame WebVR Gane</title>
   <!-- aframe CDN -->
   <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
 </head>
@@ -46,7 +47,7 @@ $ npm init --yes
 </html>
 ```
 
-In the `public/index.html` file, start by creating a simple HTML document with basic head and body tags. Then, include the CDN `<script>` in the `<head>` tag.
+In the `index.html` file, start by creating a simple HTML document with basic head and body tags. Then, include the A-Frame CDN `<script>` in the `<head>` tag.
 
 #### Create a Scene
 
@@ -69,7 +70,7 @@ Every scene needs a background which can be a color or 360° image. In A-Frame, 
 ```html
 <body>
     <a-scene>
-	<a-sky color="#A6CFE2"></a-sky>
+	   <a-sky color="#A6CFE2"></a-sky>
     </a-scene>
 </body>
 ```
@@ -102,7 +103,21 @@ Background images should be equirectangular and can be found in abundance on [Fl
 
 #### Populate the Environment
 
+There are two ways that we can populate the scene we’ve just created: 1) use primitive shapes; and 2) import 3D models. 
+
 ###### Geometries
+
+Let’s jump to the AFRAME documentation for the sphere primitive. The following sphere has two attributes, color and radius; however, we can also add attributes like scale and position.
+
+```
+<a-sphere 
+    color="yellow" 
+    radius="5" 
+    position="0 4 -10" 
+    scale="0.25 0.25 0.25"></a-sphere>
+
+```
+We can also use an entity (I liken it to a div in HTML) and add attributes like geometry, material, and animation.
 
 ```
 <a-entity
@@ -114,7 +129,6 @@ Background images should be equirectangular and can be found in abundance on [Fl
   geometry="primitive:sphere; radius: 0.05;">
 </a-entity>
 ```
-
 
 ###### 3D Models
 

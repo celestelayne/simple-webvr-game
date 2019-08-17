@@ -1,4 +1,4 @@
-console.log('this is the game manager')
+console.log('this is the game manager');
 
 // random number generator
 // helper for choosing a random location for the avocado
@@ -19,31 +19,31 @@ chooseRandomPosition = () => {
 
 // create a new avocado
 createAvocado = () => {
-  console.log('create avocado')
-
-  // const scene = document.querySelector('a-scene')
+  console.log('create avocado');
 
   const newAvocado = document.createElement('a-entity')
 
   newAvocado.setAttribute("class", "item")
-  newAvocado.setAttribute('cursor-listener', ' ')
   newAvocado.setAttribute('src', "#avocado")
-
-  console.log(newAvocado)
+  newAvocado.setAttribute('cursor-listener', ' ')
 
   let position = chooseRandomPosition()
   console.log(position)
   let positionStr = position.x.toString() + ' ' + position.y.toString() + ' ' + position.z.toString()
   console.log(positionStr)
-  newAvocado.setAttribute('position', 'x', 'position.x');
-  newAvocado.setAttribute('scale', '2 2 2');
+  // newAvocado.setAttribute('position', position);
+  // newAvocado.setAttribute('scale', '2 2 2');
 
-  console.log(newAvocado)
+  //store in JSON
+  avocadoObj = {
+    avocado: newAvocado,
+    position: position
+  }
 
-  return newAvocado
+  console.log(avocadoObj)
+
+  return avocadoObj
 }
-
-
 
 AFRAME.registerComponent('game-manager', {
   schema: {
@@ -51,10 +51,10 @@ AFRAME.registerComponent('game-manager', {
   },
   init: function () {
     console.log('Hello, World!');
-    const numAvocado = this.data['numberOfAvocado']
-    console.log(numAvocado)
-    const sceneElement = document.querySelector('a-scene')
-    const avocadoArray = []
+    const numAvocado = this.data['numberOfAvocado']; // 10
+    console.log(numAvocado);
+    const sceneElement = document.querySelector('a-scene');
+    const avocadoArray = [];
 
     for (let i = 0; i < numAvocado; i++) {
       avocadoArray.push(createAvocado());
@@ -64,8 +64,11 @@ AFRAME.registerComponent('game-manager', {
 
     sceneElement.addEventListener('loaded', function(){
       avocadoArray.forEach(function(avo){
-        console.log(avo)
-        sceneElement.appendChild(avo)
+        let element = avo.avocado;
+        let position = avo.position;
+        element.setAttribute('position', position)
+        sceneElement.appendChild(element).setAttribute('position', position)
+        console.log(element)
       })
     })
   }

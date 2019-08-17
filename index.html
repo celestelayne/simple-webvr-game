@@ -2,53 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>A-Frame Demo</title>
-  <script defer src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
-  <script defer src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
+  <title>A-Frame WebVR Game</title>
+  <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
+  <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
 
-  <script defer src="../assets/components/cursor-listener.js"></script>
-  <script defer src="../assets/components/raycaster-autorefresh.js"></script>
-  <script defer src="../assets/components/game-manager.js"></script>
+  <script src="../assets/components/cursor-listener.js"></script>
+  <script src="../assets/components/raycaster-autorefresh.js"></script>
+  <script src="../assets/components/sphere-game-manager.js"></script>
+  <!-- <script defer src="../assets/components/game-manager.js"></script> -->
 </head>
 <body>
-  <a-scene raycaster-autorefresh game-manager="numberOfAvocado: 10">
+  <a-scene raycaster-autorefresh sphere-game-manager="numberSpheres: 10">
 
-    <a-assets>
-     <!-- <img crossorigin="anonymous" id="city" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg"> -->
-<!--       <audio src="https://cdn.aframe.io/basic-guide/audio/backgroundnoise.wav" autoplay
-            preload></audio> -->
-      <!-- <img id="ground" src="ground.jpg"> -->
-      <a-asset-item id="avocado" src="../assets/models/Avocado/Avocado.gltf"></a-asset-item>
-    </a-assets>
-
-    <!-- 360-degree image -->
-    <!-- <a-sky src="#city"></a-sky> -->
-
-
-    <a-text
-      id="textField"
-      position="-2.5 3 -2"
-      color="#FDFDFD"
-      scale="0.5 0.5 0.5"
-      value="Game Score:"></a-text>
-
-<!--       <a-entity
-        class="item"
-        cursor-listener
-        gltf-model="#avocado"
-        position="0.05 1 -1"
-        scale="2 2 2">
-      </a-entity> -->
-
-<!--     <a-entity
-      id='ball'
-      position="0.05 3 -1"
-      material="color:green;"
-      geometry="primitive:sphere; radius: 0.05;"
-      dynamic-body>
-    </a-entity> -->
+    <a-assets></a-assets>
 
     <a-sky color="#A6CFE2"></a-sky>
+
+    <a-sphere
+        color="yellow"
+        cursor-listener
+        radius="5"
+        position="0 4 -10"
+        scale="0.25 0.25 0.25"></a-sphere>
+
+    <a-sphere
+        color="red"
+        cursor-listener
+        radius="4"
+        position="-3 3 -40"
+        scale="0.25 0.25 0.25"></a-sphere>
+
+    <a-sphere
+        color="pink"
+        cursor-listener
+        radius="4"
+        position="7.5 6 -30"
+        scale="0.25 0.25 0.25"></a-sphere>
 
     <a-plane
       rotation="-90 0 0"
@@ -57,10 +46,8 @@
       width="100"></a-plane>
 
     <a-camera position="0 1.5 0">
-      <a-cursor></a-cursor>
+      <a-cursor color="#FF0000"></a-cursor>
     </a-camera>
-
-    <!-- <a-entity game-manager="numberOfAvocado: 10"></a-entity> -->
 
   </a-scene>
 </body>
